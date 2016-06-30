@@ -28,11 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-var lib = require('./lib')
-
-export default {
-  Graph: lib.Graph,
-  json: require('./lib/json'),
-  alg: require('./lib/alg'),
-  version: lib.version
-}
+export {defualt as alg} from './lib/alg'
+export {default as Graph} from './lib/graph'
+export {default as json} from './lib/json'
+export {default as version} from './lib/version'
