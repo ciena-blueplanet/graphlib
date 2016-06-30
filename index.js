@@ -28,11 +28,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-var lib = require("./lib");
+var lib = require('./lib')
 
-module.exports = {
+export default {
   Graph: lib.Graph,
-  json: require("./lib/json"),
-  alg: require("./lib/alg"),
+  json: require('./lib/json'),
+  alg: require('./lib/alg'),
   version: lib.version
-};
+}
