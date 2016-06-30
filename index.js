@@ -28,7 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-export {defualt as alg} from './lib/alg'
+export {default as alg} from './lib/alg'
 export {default as Graph} from './lib/graph'
 export {default as json} from './lib/json'
 export {default as version} from './lib/version'
