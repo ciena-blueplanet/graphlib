@@ -1,6 +1,6 @@
 {
   "name": "graphlib",
-  "version": "2.1.1-pre",
+  "version": "2.1.1-beta.1",
   "description": "A directed and undirected multi-graph library",
   "scripts": {
     "build": "babel src -d lib --presets es2015 --plugins add-module-exports",
