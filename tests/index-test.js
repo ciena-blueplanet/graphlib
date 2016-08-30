@@ -1,11 +1,12 @@
-/* global chai, graphlib */
-
 // These are smoke tests to make sure the bundles look like they are working
 // correctly.
 
+const chai = require('./chai')
+const graphlib = require('../lib/index')
+
 var expect = chai.expect
 
-describe('bundle', function () {
+describe('index', function () {
   it('exports graphlib', function () {
     expect(graphlib).to.be.an('object')
     expect(graphlib.Graph).to.be.a('function')

@@ -28,7 +28,14 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-export {default as alg} from './lib/alg'
-export {default as Graph} from './lib/graph'
-export {default as json} from './lib/json'
-export {default as version} from './lib/version'
+ const alg = require('./lib/alg')
+ const Graph = require('./lib/graph')
+ const json = require('./lib/json')
+ const version = require('./lib/version')
+
+ module.exports = {
+   alg,
+   Graph,
+   json,
+   version
+ }
