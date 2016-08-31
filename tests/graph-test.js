@@ -204,11 +204,6 @@ describe('Graph', function () {
       expect(g.nodeCount()).to.equal(1)
     })
 
-    it('can set a value for the node', function () {
-      g.setNode('a', 'foo')
-      expect(g.node('a')).to.equal('foo')
-    })
-
     it("does not change the node's value with a 1-arg invocation", function () {
       g.setNode('a', 'foo')
       g.setNode('a')
@@ -353,11 +348,6 @@ describe('Graph', function () {
       g.setParent('a', 'parent')
       expect(g.hasNode('a')).to.be.true
       expect(g.parent('a')).to.equal('parent')
-    })
-
-    it('has the parent as undefined if it has never been invoked', function () {
-      g.setNode('a')
-      expect(g.parent('a')).to.be.undefined
     })
 
     it('moves the node from the previous parent', function () {

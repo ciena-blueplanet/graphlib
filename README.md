@@ -1,16 +1,36 @@
-# Graphlib
+# ciena-graphlib
 
-Graphlib is a JavaScript library that provides data structures for undirected
-and directed multi-graphs along with algorithms that can be used with them.
+`ciena-graphlib` is a fork of [graphlib](https://github.com/cpettitt/graphlib),
+which is a JavaScript library that provides data structures for undirected and
+directed multi-graphs along with algorithms that can be used with them.
 
-[![Build Status](https://secure.travis-ci.org/cpettitt/graphlib.png)](http://travis-ci.org/cpettitt/graphlib)
+###### Dependencies
 
-To learn more [see our Wiki](https://github.com/cpettitt/graphlib/wiki).
+[![NPM][npm-img]][npm-url]
 
-# License
+###### Health
 
-Graphlib is licensed under the terms of the MIT License. See the
-[LICENSE](LICENSE) file
-aor details.
+[![Travis][ci-img]][ci-url]
+[![Coveralls][cov-img]][cov-url]
 
-[npm package manager]: http://npmjs.org/
+###### Security
+
+[![bitHound][bithound-img]][bithound-url]
+
+## Installation
+
+```bash
+npm install ciena-graphlib --ignore-scripts
+```
+
+[bithound-img]: https://www.bithound.io/github/ciena-blueplanet/graphlib/badges/score.svg "bitHound"
+[bithound-url]: https://www.bithound.io/github/ciena-blueplanet/graphlib
+
+[ci-img]: https://img.shields.io/travis/ciena-blueplanet/graphlib.svg "Travis CI Build Status"
+[ci-url]: https://travis-ci.org/ciena-blueplanet/graphlib
+
+[cov-img]: https://img.shields.io/coveralls/ciena-blueplanet/graphlib.svg "Coveralls Code Coverage"
+[cov-url]: https://coveralls.io/github/ciena-blueplanet/graphlib
+
+[npm-img]: https://img.shields.io/npm/v/graphlib.svg "NPM Version"
+[npm-url]: https://www.npmjs.com/package/graphlib

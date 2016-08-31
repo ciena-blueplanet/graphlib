@@ -2,6 +2,7 @@ var expect = require('../chai').expect
 
 var Graph = require('../..').Graph
 var dijkstra = require('../..').alg.dijkstra
+var weightFn = require('../utils').weightFn
 
 describe('alg.dijkstra', function () {
   it('assigns distance 0 for the source node', function () {
@@ -82,9 +83,3 @@ describe('alg.dijkstra', function () {
     expect(function () { dijkstra(g, 'a', weightFn(g)) }).to.throw()
   })
 })
-
-function weightFn (g) {
-  return function (e) {
-    return g.edge(e)
-  }
-}

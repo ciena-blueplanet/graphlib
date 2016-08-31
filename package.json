@@ -1,6 +1,6 @@
 {
-  "name": "graphlib",
-  "version": "2.1.1-beta.2",
+  "name": "ciena-graphlib",
+  "version": "0.0.0",
   "description": "A directed and undirected multi-graph library",
   "scripts": {
     "build": "babel src -d lib --presets es2015 --plugins add-module-exports",
@@ -19,7 +19,8 @@
     "algorithms"
   ],
   "dependencies": {
-    "lodash": "^4.11.1"
+    "lodash": "^4.11.1",
+    "npm-install-security-check": "^1.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
