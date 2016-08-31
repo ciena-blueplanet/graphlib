@@ -17,42 +17,23 @@ cache:
     - node_modules
 env:
   matrix:
-  - EMBER_TRY_SCENARIO=ember-1-12
-  - EMBER_TRY_SCENARIO=ember-1-13
-  - EMBER_TRY_SCENARIO=ember-2-0
-  - EMBER_TRY_SCENARIO=ember-2-1
-  - EMBER_TRY_SCENARIO=ember-2-2
-  - EMBER_TRY_SCENARIO=ember-2-3
-  - EMBER_TRY_SCENARIO=ember-2-4
-  - EMBER_TRY_SCENARIO=ember-2-5
-  - EMBER_TRY_SCENARIO=ember-2-6
-  - EMBER_TRY_SCENARIO=default
-  - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
+  - CXX=g++-4.8
   global:
-    - CXX=g++-4.8
-    - secure: hhwKlKETBkKUckJyAj6IRgi+/ur7KkL7CuBA6bY5MjlGwxRzt8L8etiZSWb//iL17hJboE3A/TZfLFYYs4i8Sz1diPhf+qP3YGNxkrM2lLU/U4TcLu5XaEKTP1vI2WtwkYo28QxWjHAs8sGSEAioryfoit2rYV23cl60yOOb5kTCKmH7WWOOv2z48w5UG0Ir7u0PLY0rsFlE7pwLxCCdDf1VLjsiFd+hbsKZ7FaU+ny/fYjZDmOiXAW3R42WGTaG86a+tXBVaRdOMJzBioaoH5oEeL7AxjXInFVUYS94e5GzxysCT/KnoJ6suAOEFJ8v/SbI27iRTTKR8NZh7b3h4oRUsNuhZNUUB4CyIBpkXZII3sCGxRaFcCjc+0AJTV8YSShlHBIUGbobuf+cy3LkOzRzRUYO/0DigqELH3BpUPDHfGfuqq6NSVVN47qT0wdKQsfWSCAR4U8Ni6mKNsjl4l0s30H9Rf7Whwe28KGNaBTlExPMivfPvceFxMSBBRdDHtldmyCj/2NDJHUgKCa8ofmlPb8+HVaUOH4Ie97EvUg8fvEfDc3VfOpXANYkt+mytYJwTCO9GPri5rI8ebNMc5237DI4XGvdNLfGWXFmunoJCZLJLIvTFzlREL9QmehR00TAP2p7Kbh+TSSB6g0O4MjayFGlA9pVkbm/mUeKQwE=
-matrix:
-  fast_finish: true
-  allow_failures:
-  - env: EMBER_TRY_SCENARIO=ember-canary
+    secure: FFaQCcTLOD3KvpQuQ+ZPpiqE8gbvPrm6IOo7WjP5+zh7BDz3bByvlcLq3jjSjE49AzQXINbeWIOQvmJEeLTAuWMe/D5RuUE4YFmM+ybiTWZvXqrveVadJE7HhQ/P+3k3JoNVbTwMVurnp0aRqbb3AOgDGw9lb9ctzf8zbreD6MygVMouOb4ThayKwwBwybF2yL8sysWHNCnEU2iDrS0L6mJShfLsc8KJejCcjCQag8F867MbRA9d+sCqyJCiJU5Aiyj34lPnKpLGE3pkAph7TmR0PUaJK9MBPjyGVKMLnsGGGHJAXoKV4AS3bTCv1B59KvFS1pHYkVzOKERf5m7mM34A56sR/IzJquHqve+CU6bKi5mfpI2zmk6HQ18mOp5d8C85s3GphA7FPE1jYfPghc7g5RPVdtIm8DYp7Gb/avYnDs9modrn0wRtdEiQIzOJKdC+NIOQHDhJDW0tD+sK8UBMZsrV2loMPggODuaszvrYwSKekJ6Ex3WBzUoN+oPiNxJPh0ZNd1meowByWofwO+aFEnIZR0JvQKmxqQt4TfaQWPr5xVw9kB94PwWIIyVzpI8mZnPbhzUoOvekjcBkJWRxmwGp2S0MxOUs8nA1+7mN/aO0IRpGRzMsLgdBcHb7TCj57yq3Q8uqX8aZlLkmC2DZ1RgSMNWL/s5gSZY5jBc=
 before_install:
 - npm config set spin false
 - npm install -g coveralls pr-bumper --ignore-scripts
 - pr-bumper check
 install:
 - npm install --ignore-scripts
-- bower install
 before_script:
 - "export DISPLAY=:99.0"
 - "sh -e /etc/init.d/xvfb start"
 - sleep 3 # give xvfb some time to start
 script:
-- npm run lint
-- ember try:one $EMBER_TRY_SCENARIO --- ember test
+- npm test
 after_success:
-- .travis/publish-coverage.sh
+- cat coverage/lcov.info | coveralls
 before_deploy:
 - pr-bumper bump
 deploy:
@@ -60,14 +41,11 @@ deploy:
   email: npm.ciena@gmail.com
   skip_cleanup: true
   api_key:
-    secure: TA8uYuxF5dwOU+42MDe0+xwyCQNB5XpmPtFnFrlqZkKpVcP+fXLWDFQe5vHlSwntHcyDCplcuU3JXzujPWgTgOsnMidkKDTw2CcaZB+kO8HNIneeuATqXl+ukFY8gkraIgFt3Aj3UR7LbGc+DHe5BdXPUE15K//IUF5fOY37Mg0ESKGUY6cF6bBCcEyO4tSiduC0txktaBj6KEMLg/pGDkUftYMZDfYAymNzxf/r/SFExdIIzNgJbV/sKFX4tpNUKVnOdtjsg7u0xQYmJjkth2t0S7AquenhWoSanj/O26lA0W/Jy3Mh1abK+EiEQ1o8wtiKzBqw+eRXRjnQWczxbzlIeTYqEdTOCKW1aog8Rs+f6NIsRRlPCdjmGnYfFlu+pDpyoT66lN2l0oZLV8BqE1JQH6W/5zXHLrjXVVsLwCvy2NbC+ISjn3C9LD1K5QZ22V6g7I01Uqz9AY3ol6z4d3y7431f1YgRsR9vZ/BGtkfHhdK8G/RwvNMeKvuipo5cvlk8TQjaYZH8YuzOPy1E1Q0ytahPCG5yx27wP0OsupgTb7u3Qhb8IbNGUvYlV/aDtwUsWjT4h9ZpNIWvwEmWVLrL1zg0A79Bwj4pqKRAslJBWHFO3epKBXdoLx985ornoj3eNyrNEND+JmeeNb1bGjqUsKrlwpCTm59wRDOqo/8=
+    secure: JrigHelBNiqhCp2NZQoYX1nrjE8N7KV0aBe9pYaQA1AW8GAASmwuemVIe8oP0yknmiFOF7q6mNERXuKWCBNQwUFue55cTULeeqdryiGT9VqP9DNLLgWNPmKxnrUIDqUpDLrIBl3kOEB6xYnp/VpI5pjxeSoHNfuuiBsB6cvYQ8jA8NRKU10sQI0uKcK2GplP7L3SvXXgyb62NPGVnxbyLhF33o6vB6zd6Ag6WI6mzfuXUm1ryxLWcktlsYtgOwN2PMmWJw6wOIeo4WM0rNWGchzq4MFcuglbh0hY4c+IB4pocrZxu7yiCzp/OZ/R36AnBovXIaFhgTtuYsCMHZlaen860osURk5VKJeu+xhJes0Xd5QDnr++UeWDZkZIIOA5Ifw9OcSFIo3d8w1gvizQLwyr8hrlhBYgggVEhB1DZD0Ey/JjBqpiyydiqEbN0he9KNbDy5NLfAPkQO4k0e3reXL3hDZZEGl7cYkyEwXvxgOeC2ArUCKb/8rVxvkYbPm4hITcyft6xjQGl7Wk2rRJ7RfvaeZCfZ5RHCnY9j0tv+eOTCkTfsEG4WLj/k60t7ugauHkhd7S+nXlgy3oHOwq8FXltg7CdgceUfcvwIZSifdhA3KVnKeyv76+LKtqKECoW7622Lf9v7johYYaCjw0sGkghZNr3VYH0QHhGg25y/E=
   on:
     branch: master
-    condition: "$EMBER_TRY_SCENARIO = 'default'"
     node: 'stable'
     tags: false
-after_deploy:
-- .travis/publish-gh-pages.sh
 notifications:
   slack:
-    secure: VHgbGLNXX6P++CiE3GyqVIcwrDOGv66ioaNICwsd73X7hv6yIzzNcy9XtUQTuApV1mHj9Cv/g3ioMeJQ74NF/rBYwUIkQOQ9VphLRbzs2Ff8g0x+xy7Bs4nLSkMkn70h75h8ysOyXkm1wEI1sQkY4vALNCdOafRMz4PcBMeHlAEn4DOZ4nP8hqJ5BLy+H9ep3WXz7zZigPikDG1krb8LPioCbLkaBDkGpMsDcqkWD1/8aK+3We4nReeAhu905Jue9D74/6FMK9QTtjeTGj15yurMrOfQrGumDoue3GRlXvedj/K5C1CpXe9i3AdzG087mxQa8+4jPeyBRZ73Z/hefHRUHdhRZqnx9cFnAUGxN/TpUleqe4ddIkVGUh1N8NsgUhuZHlIrCVIT09GjYoVqLA37RkbcleUyJN6DUJJplDznVni+mW+OJZQ+Jx9fXKfMjpOU7D+nu2z4Dlu0Cor7rvS3nz36ds1KJecVfBvrPK6s+Am0+WfnpdQ09XJDOHOjI3u5nNcOp7CVvhYcEIp3hpSPyxlPe0EKfWoUrSPW1A9kpmILWXJMwMB2d4FSwQrVVqBxzS7DmzyzPVwdBZOpNBz/dfce6YKCdo90WhMJtIl0NvyxS/YcA+t+Cf0r/227oG5iKllhbA1M+iU8RWpFYXglikzQqo8+tYbjDqynFEw=
+    secure: nOs68N87/d7QfAiXMQovj2wdntXbsz5vKfBMlXRoRIQ8ltsXy2iwBu6gNOc55pSqc7d7v1wTOZtjK77WPMbMrdJryg3IjrFG/73cQbiwee+mfU8jrf+LR8ujG/Za8v7uZ4R0AvIqlHktSjvplKlZ5oegaXC/zvmFJdUfqNcexEVMXBYlwIU0UkP5LCMqdm6uBJUIHf7A+/etoHPOpCoxGph773dCGYxsLlqP9jo+qepXSJNVr0xhE7ncouytuy0WZkXwOtBUzNxZebuUFboPVmfozPo8gVneuh9Q7eZeJFJWPhJL8ZamFiyulEYKooVMogQHuYo6trEUUFz6y3cV3Ke6T7NIFGZ5LhttjVItl8uk2Kjj53AHr5n/WfQPYweCNXuURxMlLkE3aMafj5SbwGft6BAESR2CXb3rFRVey5HTLi6b+XkMo97jdKJxLzpkWhasAzYwtXXx0BQOZp6hNB63kUmciqwDfKZ8xV6lBgDqrekLH2z5SFnlugL/6MHwcLE1BKIeQgf4zMbcRDI6YsFxnOaFVveGfFpLul1JBwkIV4gYOIw+FWsuwIt5Icq+5AhYz5iN7nGLOHqD7jBQdzJUoZMI8YtnI7LSTIhZoXjHREEAM2mz8OEh5DcDk7xgJCF8VBGqau6JH7zMaouFZTLHv/Jygul/tEWkefliAaU=
