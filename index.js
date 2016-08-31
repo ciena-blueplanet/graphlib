@@ -31,11 +31,9 @@
  const alg = require('./lib/alg')
  const Graph = require('./lib/graph')
  const json = require('./lib/json')
- const version = require('./lib/version')
 
  module.exports = {
    alg,
    Graph,
-   json,
-   version
+   json
  }

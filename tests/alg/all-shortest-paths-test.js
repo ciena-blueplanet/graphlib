@@ -1,5 +1,6 @@
 var expect = require('../chai').expect
 var Graph = require('../..').Graph
+var weightFn = require('../utils').weightFn
 
 exports.tests = tests
 
@@ -117,10 +118,4 @@ function tests (sp) {
       })
     })
   })
-}
-
-function weightFn (g) {
-  return function (e) {
-    return g.edge(e)
-  }
 }

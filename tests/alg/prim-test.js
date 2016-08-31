@@ -2,6 +2,7 @@ var _ = require('lodash')
 var expect = require('../chai').expect
 var Graph = require('../..').Graph
 var prim = require('../..').alg.prim
+var weightFn = require('../utils').weightFn
 
 describe('alg.prim', function () {
   it('returns an empty graph for an empty input', function () {
@@ -48,9 +49,3 @@ describe('alg.prim', function () {
     expect(function () { prim(source, weightFn(source)) }).to.throw()
   })
 })
-
-function weightFn (g) {
-  return function (edge) {
-    return g.edge(edge)
-  }
-}

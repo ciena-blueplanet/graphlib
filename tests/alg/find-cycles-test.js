@@ -2,6 +2,7 @@ var _ = require('lodash')
 var expect = require('../chai').expect
 var Graph = require('../..').Graph
 var findCycles = require('../..').alg.findCycles
+var sort = require('../utils').sort
 
 describe('alg.findCycles', function () {
   it('returns an empty array for an empty graph', function () {
@@ -41,10 +42,3 @@ describe('alg.findCycles', function () {
     expect(sort(findCycles(g))).to.eql([['a', 'b'], ['c', 'd', 'e'], ['g']])
   })
 })
-
-// A helper that sorts components and their contents
-function sort (cmpts) {
-  return _.sortBy(_.map(cmpts, function (cmpt) {
-    return _.sortBy(cmpt)
-  }), function (cmpts) { return cmpts[0] })
-}

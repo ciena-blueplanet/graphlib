@@ -204,11 +204,6 @@ describe('Graph', function () {
       expect(g.nodeCount()).to.equal(1)
     })
 
-    it('can set a value for the node', function () {
-      g.setNode('a', 'foo')
-      expect(g.node('a')).to.equal('foo')
-    })
-
     it("does not change the node's value with a 1-arg invocation", function () {
       g.setNode('a', 'foo')
       g.setNode('a')

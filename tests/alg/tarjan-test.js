@@ -2,6 +2,7 @@ var _ = require('lodash')
 var expect = require('../chai').expect
 var Graph = require('../..').Graph
 var tarjan = require('../..').alg.tarjan
+var sort = require('../utils').sort
 
 describe('alg.tarjan', function () {
   it('returns an empty array for an empty graph', function () {
@@ -35,10 +36,3 @@ describe('alg.tarjan', function () {
     expect(sort(tarjan(g))).to.eql([['a', 'b'], ['c', 'd', 'e'], ['f']])
   })
 })
-
-// A helper that sorts components and their contents
-function sort (cmpts) {
-  return _.sortBy(_.map(cmpts, function (cmpt) {
-    return _.sortBy(cmpt)
-  }), function (cmpts) { return cmpts[0] })
-}

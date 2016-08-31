@@ -2,6 +2,7 @@ var expect = require('../chai').expect
 var Graph = require('../..').Graph
 var floydWarshall = require('../..').alg.floydWarshall
 var allShortestPathsTest = require('./all-shortest-paths-test')
+var weightFn = require('../utils').weightFn
 
 describe('alg.floydWarshall', function () {
   allShortestPathsTest.tests(floydWarshall)
@@ -54,9 +55,3 @@ describe('alg.floydWarshall', function () {
     })
   })
 })
-
-function weightFn (g) {
-  return function (edge) {
-    return g.edge(edge)
-  }
-}
