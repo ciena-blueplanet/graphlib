@@ -32,5 +32,5 @@ npm install ciena-graphlib --ignore-scripts
 [cov-img]: https://img.shields.io/coveralls/ciena-blueplanet/graphlib.svg "Coveralls Code Coverage"
 [cov-url]: https://coveralls.io/github/ciena-blueplanet/graphlib
 
-[npm-img]: https://img.shields.io/npm/v/graphlib.svg "NPM Version"
-[npm-url]: https://www.npmjs.com/package/graphlib
+[npm-img]: https://img.shields.io/npm/v/ciena-graphlib.svg "NPM Version"
+[npm-url]: https://www.npmjs.com/package/ciena-graphlib
