@@ -1,6 +1,16 @@
 import _ from 'lodash'
 
-export default dfs
+function doDfs (g, v, postorder, visited, navigation, acc) {
+  if (!_.has(visited, v)) {
+    visited[v] = true
+
+    if (!postorder) { acc.push(v) }
+    _.each(navigation(v), function (w) {
+      doDfs(g, w, postorder, visited, navigation, acc)
+    })
+    if (postorder) { acc.push(v) }
+  }
+}
 
 /*
  * A helper that preforms a pre- or post-order traversal on the input graph
@@ -10,7 +20,7 @@ export default dfs
  *
  * Order must be one of "pre" or "post".
  */
-function dfs (g, vs, order) {
+export default function (g, vs, order) {
   if (!_.isArray(vs)) {
     vs = [vs]
   }
@@ -27,16 +37,4 @@ function dfs (g, vs, order) {
     doDfs(g, v, order === 'post', visited, navigation, acc)
   })
   return acc
-}
-
-function doDfs (g, v, postorder, visited, navigation, acc) {
-  if (!_.has(visited, v)) {
-    visited[v] = true
-
-    if (!postorder) { acc.push(v) }
-    _.each(navigation(v), function (w) {
-      doDfs(g, w, postorder, visited, navigation, acc)
-    })
-    if (postorder) { acc.push(v) }
-  }
 }

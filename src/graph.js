@@ -2,8 +2,6 @@
 
 import _ from 'lodash'
 
-export default Graph
-
 var DEFAULT_EDGE_NAME = '\x00'
 var GRAPH_NODE = '\x00'
 var EDGE_KEY_DELIM = '\x01'
@@ -515,3 +513,5 @@ function edgeArgsToObj (isDirected, v_, w_, name) {
 function edgeObjToId (isDirected, edgeObj) {
   return edgeArgsToId(isDirected, edgeObj.v, edgeObj.w, edgeObj.name)
 }
+
+export default Graph

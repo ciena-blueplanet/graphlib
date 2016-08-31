@@ -1,16 +1,7 @@
 import _ from 'lodash'
-
 import PriorityQueue from '../data/priority-queue'
 
-export default dijkstra
-
-var DEFAULT_WEIGHT_FUNC = _.constant(1)
-
-function dijkstra (g, source, weightFn, edgeFn) {
-  return runDijkstra(g, String(source),
-                     weightFn || DEFAULT_WEIGHT_FUNC,
-                     edgeFn || function (v) { return g.outEdges(v) })
-}
+const DEFAULT_WEIGHT_FUNC = _.constant(1)
 
 function runDijkstra (g, source, weightFn, edgeFn) {
   var results = {}
@@ -52,4 +43,10 @@ function runDijkstra (g, source, weightFn, edgeFn) {
   }
 
   return results
+}
+
+export default function (g, source, weightFn, edgeFn) {
+  weightFn = weightFn || DEFAULT_WEIGHT_FUNC
+  edgeFn = edgeFn || function (v) { return g.outEdges(v) }
+  return runDijkstra(g, String(source), weightFn, edgeFn)
 }

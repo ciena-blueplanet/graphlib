@@ -1,7 +1,5 @@
 import _ from 'lodash'
 
-export default PriorityQueue
-
 /**
  * A min-priority queue data structure. This algorithm is derived from Cormen,
  * et al., "Introduction to Algorithms". The basic idea of a min-priority
@@ -150,3 +148,5 @@ PriorityQueue.prototype._swap = function (i, j) {
   keyIndices[origArrJ.key] = i
   keyIndices[origArrI.key] = j
 }
+
+export default PriorityQueue

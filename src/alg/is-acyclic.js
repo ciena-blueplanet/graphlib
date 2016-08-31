@@ -1,8 +1,6 @@
 import topsort from './topsort'
 
-export default isAcyclic
-
-function isAcyclic (g) {
+export default function (g) {
   try {
     topsort(g)
   } catch (e) {

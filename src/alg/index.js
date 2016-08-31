@@ -10,6 +10,20 @@ import prim from './prim'
 import tarjan from './tarjan'
 import topsort from './topsort'
 
+export {
+  components,
+  dijkstra,
+  dijkstraAll,
+  findCycles,
+  floydWarshall,
+  isAcyclic,
+  postorder,
+  preorder,
+  prim,
+  tarjan,
+  topsort
+}
+
 export default {
   components,
   dijkstra,

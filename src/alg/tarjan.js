@@ -1,8 +1,6 @@
 import _ from 'lodash'
 
-export default tarjan
-
-function tarjan (g) {
+export default function (g) {
   var index = 0
   var stack = []
   var visited = {} // node id -> { onStack, lowlink, index }

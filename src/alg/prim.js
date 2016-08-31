@@ -1,11 +1,8 @@
 import _ from 'lodash'
-
 import Graph from '../graph'
 import PriorityQueue from '../data/priority-queue'
 
-export default prim
-
-function prim (g, weightFunc) {
+export default function (g, weightFunc) {
   var result = new Graph()
   var parents = {}
   var pq = new PriorityQueue()

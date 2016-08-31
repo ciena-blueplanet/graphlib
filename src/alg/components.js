@@ -1,8 +1,6 @@
 import _ from 'lodash'
 
-export default components
-
-function components (g) {
+export default function (g) {
   var visited = {}
   var cmpts = []
   var cmpt

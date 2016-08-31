@@ -2,27 +2,6 @@ import _ from 'lodash'
 
 import Graph from './graph'
 
-export default {
-  write: write,
-  read: read
-}
-
-function write (g) {
-  var json = {
-    options: {
-      directed: g.isDirected(),
-      multigraph: g.isMultigraph(),
-      compound: g.isCompound()
-    },
-    nodes: writeNodes(g),
-    edges: writeEdges(g)
-  }
-  if (!_.isUndefined(g.graph())) {
-    json.value = _.clone(g.graph())
-  }
-  return json
-}
-
 function writeNodes (g) {
   return _.map(g.nodes(), function (v) {
     var nodeValue = g.node(v)
@@ -52,7 +31,7 @@ function writeEdges (g) {
   })
 }
 
-function read (json) {
+export function read (json) {
   var g = new Graph(json.options).setGraph(json.value)
   _.each(json.nodes, function (entry) {
     g.setNode(entry.v, entry.value)
@@ -64,4 +43,25 @@ function read (json) {
     g.setEdge({ v: entry.v, w: entry.w, name: entry.name }, entry.value)
   })
   return g
+}
+
+export function write (g) {
+  var json = {
+    options: {
+      directed: g.isDirected(),
+      multigraph: g.isMultigraph(),
+      compound: g.isCompound()
+    },
+    nodes: writeNodes(g),
+    edges: writeEdges(g)
+  }
+  if (!_.isUndefined(g.graph())) {
+    json.value = _.clone(g.graph())
+  }
+  return json
+}
+
+export default {
+  write: write,
+  read: read
 }

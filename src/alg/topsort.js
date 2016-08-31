@@ -1,7 +1,6 @@
 import _ from 'lodash'
 
-export default topsort
-topsort.CycleException = CycleException
+function CycleException () {}
 
 function topsort (g) {
   var visited = {}
@@ -31,4 +30,6 @@ function topsort (g) {
   return results
 }
 
-function CycleException () {}
+topsort.CycleException = CycleException
+
+export default topsort
