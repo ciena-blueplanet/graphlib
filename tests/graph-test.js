@@ -350,11 +350,6 @@ describe('Graph', function () {
       expect(g.parent('a')).to.equal('parent')
     })
 
-    it('has the parent as undefined if it has never been invoked', function () {
-      g.setNode('a')
-      expect(g.parent('a')).to.be.undefined
-    })
-
     it('moves the node from the previous parent', function () {
       g.setParent('a', 'parent')
       g.setParent('a', 'parent2')

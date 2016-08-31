@@ -1,4 +1,3 @@
-var _ = require('lodash')
 var expect = require('../chai').expect
 var Graph = require('../..').Graph
 var tarjan = require('../..').alg.tarjan
