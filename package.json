@@ -1,6 +1,6 @@
 {
   "name": "ciena-graphlib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A directed and undirected multi-graph library",
   "scripts": {
     "build": "babel src -d lib --presets es2015 --plugins add-module-exports",
