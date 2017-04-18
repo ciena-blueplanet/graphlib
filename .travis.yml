@@ -28,11 +28,11 @@ env:
 
 before_install:
 - npm config set spin false
-- npm install -g coveralls pr-bumper --ignore-scripts
-- pr-bumper check
+- npm install -g coveralls pr-bumper
+- $(npm root -g)/pr-bumper/.travis/maybe-check-scope.sh
 
 install:
-- npm install --ignore-scripts
+- $(npm root -g)/pr-bumper/.travis/maybe-install.sh
 
 before_script:
 - "export DISPLAY=:99.0"
@@ -40,13 +40,11 @@ before_script:
 - sleep 3 # give xvfb some time to start
 
 script:
-- npm test
+- $(npm root -g)/pr-bumper/.travis/maybe-test.sh
+- .travis/maybe-bump-version.sh
 
 after_success:
-- cat coverage/lcov.info | coveralls
-
-before_deploy:
-- pr-bumper bump
+- .travis/maybe-publish-coverage.sh
 
 deploy:
   provider: npm
@@ -56,7 +54,7 @@ deploy:
     secure: JrigHelBNiqhCp2NZQoYX1nrjE8N7KV0aBe9pYaQA1AW8GAASmwuemVIe8oP0yknmiFOF7q6mNERXuKWCBNQwUFue55cTULeeqdryiGT9VqP9DNLLgWNPmKxnrUIDqUpDLrIBl3kOEB6xYnp/VpI5pjxeSoHNfuuiBsB6cvYQ8jA8NRKU10sQI0uKcK2GplP7L3SvXXgyb62NPGVnxbyLhF33o6vB6zd6Ag6WI6mzfuXUm1ryxLWcktlsYtgOwN2PMmWJw6wOIeo4WM0rNWGchzq4MFcuglbh0hY4c+IB4pocrZxu7yiCzp/OZ/R36AnBovXIaFhgTtuYsCMHZlaen860osURk5VKJeu+xhJes0Xd5QDnr++UeWDZkZIIOA5Ifw9OcSFIo3d8w1gvizQLwyr8hrlhBYgggVEhB1DZD0Ey/JjBqpiyydiqEbN0he9KNbDy5NLfAPkQO4k0e3reXL3hDZZEGl7cYkyEwXvxgOeC2ArUCKb/8rVxvkYbPm4hITcyft6xjQGl7Wk2rRJ7RfvaeZCfZ5RHCnY9j0tv+eOTCkTfsEG4WLj/k60t7ugauHkhd7S+nXlgy3oHOwq8FXltg7CdgceUfcvwIZSifdhA3KVnKeyv76+LKtqKECoW7622Lf9v7johYYaCjw0sGkghZNr3VYH0QHhGg25y/E=
   on:
     all_branches: true
-    node: 'stable'
+    node: '6.9.1'
     tags: true
 
 notifications:
