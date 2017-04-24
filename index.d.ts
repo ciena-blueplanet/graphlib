@@ -7,7 +7,7 @@ export interface IGraphOptions {
 }
 
 export class Graph {
-    constructor(options: IGraphOptions);
+    constructor(options?: IGraphOptions);
     edges(): Edge[];
     edge(id: any): any;
     nodes(): string[];
