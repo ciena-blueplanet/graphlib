@@ -47,7 +47,7 @@ after_success:
 - .travis/maybe-publish-coverage.sh
 
 before_deploy:
-  - npm run install
+  - npm install
   - npm run build
 
 deploy:
