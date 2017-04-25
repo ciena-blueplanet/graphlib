@@ -1,6 +1,6 @@
 {
   "name": "ciena-graphlib",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A directed and undirected multi-graph library",
   "scripts": {
     "build": "npm run build-dist && npm run build-lib",
