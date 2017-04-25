@@ -23,14 +23,14 @@ directed multi-graphs along with algorithms that can be used with them.
 npm install ciena-graphlib --ignore-scripts
 ```
 
-[bithound-img]: https://www.bithound.io/github/ciena-blueplanet/graphlib/badges/score.svg "bitHound"
-[bithound-url]: https://www.bithound.io/github/ciena-blueplanet/graphlib
+[bithound-img]: https://www.bithound.io/github/ciena-blueplanet/ciena-graphlib/badges/score.svg "bitHound"
+[bithound-url]: https://www.bithound.io/github/ciena-blueplanet/ciena-graphlib
 
-[ci-img]: https://img.shields.io/travis/ciena-blueplanet/graphlib.svg "Travis CI Build Status"
-[ci-url]: https://travis-ci.org/ciena-blueplanet/graphlib
+[ci-img]: https://img.shields.io/travis/ciena-blueplanet/ciena-graphlib.svg "Travis CI Build Status"
+[ci-url]: https://travis-ci.org/ciena-blueplanet/ciena-graphlib
 
-[cov-img]: https://img.shields.io/coveralls/ciena-blueplanet/graphlib.svg "Coveralls Code Coverage"
-[cov-url]: https://coveralls.io/github/ciena-blueplanet/graphlib
+[cov-img]: https://img.shields.io/coveralls/ciena-blueplanet/ciena-graphlib.svg "Coveralls Code Coverage"
+[cov-url]: https://coveralls.io/github/ciena-blueplanet/ciena-graphlib
 
 [npm-img]: https://img.shields.io/npm/v/ciena-graphlib.svg "NPM Version"
 [npm-url]: https://www.npmjs.com/package/ciena-graphlib
