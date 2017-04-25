@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ciena-blueplanet/graphlib.git"
+    "url": "https://github.com/ciena-blueplanet/ciena-graphlib.git"
   },
   "license": "MIT"
 }
