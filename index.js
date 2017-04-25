@@ -33,7 +33,7 @@
  const json = require('./lib/json')
 
  module.exports = {
-   alg,
-   Graph,
-   json
+   alg: alg,
+   Graph: Graph,
+   json: json
  }
