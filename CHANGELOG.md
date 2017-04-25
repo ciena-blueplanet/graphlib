@@ -1,3 +1,8 @@
+# 1.0.6 (2017-04-25)
+
+Please add a description of your change here, it will be automatically prepended to the `CHANGELOG.md` file.
+
+
 # 1.0.5 (2017-04-25)
 Don't use ES6 object shorthand syntax
 
