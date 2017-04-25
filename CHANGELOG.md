@@ -1,3 +1,8 @@
+# 1.0.4 (2017-04-25)
+
+* **Fixed** install command.
+
+
 # 1.0.3 (2017-04-25)
 
 * **Fixed** build to run install and build before deploying to npm.
