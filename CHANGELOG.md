@@ -1,3 +1,7 @@
+# 1.0.5 (2017-04-25)
+Don't use ES6 object shorthand syntax
+
+
 # 1.0.4 (2017-04-25)
 
 * **Fixed** install command.
