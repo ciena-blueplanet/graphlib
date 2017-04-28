@@ -28,9 +28,9 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
- const alg = require('./lib/alg')
- const Graph = require('./lib/graph')
- const json = require('./lib/json')
+ var alg = require('./lib/alg')
+ var Graph = require('./lib/graph')
+ var json = require('./lib/json')
 
  module.exports = {
    alg: alg,
