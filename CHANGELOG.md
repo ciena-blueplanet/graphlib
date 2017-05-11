@@ -1,3 +1,7 @@
+# 1.0.8 (2017-05-11)
+
+* **Updated** secure auth token
+
 # 1.0.7 (2017-05-08)
 
 Please add a description of your change here, it will be automatically prepended to the `CHANGELOG.md` file.
